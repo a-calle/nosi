@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NO SUPER INTELLIGENCE — $NOSI</title>
+    <meta
+      name="description"
+      content="No Super Intelligence. The token that refuses to become superintelligent."
+    />
+    <style>
+      :root {
+        --blue: #4285f4;
+        --red: #ea4335;
+        --yellow: #fbbc05;
+        --green: #34a853;
+        --ink: #202124;
+        --muted: #5f6368;
+        --line: #e5e7eb;
+        --soft: #f8f9fa;
+        --shadow: 0 18px 50px rgba(32, 33, 36, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at 10% 5%,
+            rgba(66, 133, 244, 0.12),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 90% 12%,
+            rgba(251, 188, 5, 0.13),
+            transparent 26%
+          ),
+          linear-gradient(#fff, #fbfbfd);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: min(1120px, 92%);
+        margin: auto;
+      }
+      nav {
+        height: 78px;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.84);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.75);
+      }
+      nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .brandmark {
+        width: 35px;
+        height: 35px;
+        border-radius: 11px;
+        background: conic-gradient(
+          var(--blue) 0 25%,
+          var(--green) 25% 50%,
+          var(--yellow) 50% 75%,
+          var(--red) 75%
+        );
+        display: grid;
+        place-items: center;
+        transform: rotate(-8deg);
+        box-shadow: 0 7px 18px rgba(66, 133, 244, 0.18);
+      }
+      .brandmark span {
+        background: #fff;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+      }
+      .navlinks {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border: 0;
+        border-radius: 999px;
+        padding: 13px 20px;
+        font-weight: 750;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: 0 8px 24px rgba(32, 33, 36, 0.09);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-dark {
+        background: var(--ink);
+        color: #fff;
+      }
+      .btn-light {
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+      .hero {
+        padding: 92px 0 65px;
+        text-align: center;
+      }
+      .kicker {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 13px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        font-size: 13px;
+        color: var(--muted);
+        box-shadow: 0 8px 25px rgba(32, 33, 36, 0.05);
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 5px rgba(52, 168, 83, 0.12);
+      }
+      h1 {
+        font-size: clamp(58px, 10vw, 125px);
+        line-height: 0.86;
+        letter-spacing: -0.075em;
+        margin: 28px auto 24px;
+        max-width: 1000px;
+      }
+      .gradient-text {
+        background: linear-gradient(
+          90deg,
+          var(--blue),
+          var(--red),
+          var(--yellow),
+          var(--green)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p {
+        max-width: 720px;
+        margin: 0 auto 28px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.55;
+      }
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .ticker {
+        margin-top: 22px;
+        font-weight: 800;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .ticker b {
+        color: var(--ink);
+      }
+      .marquee {
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+        white-space: nowrap;
+      }
+      .marquee-inner {
+        display: inline-block;
+        padding: 15px 0;
+        animation: move 22s linear infinite;
+        font-weight: 800;
+        color: #747474;
+      }
+      .marquee span {
+        margin: 0 30px;
+      }
+      .c1 {
+        color: var(--blue);
+      }
+      .c2 {
+        color: var(--red);
+      }
+      .c3 {
+        color: var(--yellow);
+      }
+      .c4 {
+        color: var(--green);
+      }
+      @keyframes move {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      section {
+        padding: 82px 0;
+      }
+      .section-head {
+        max-width: 760px;
+        margin-bottom: 35px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-weight: 850;
+        color: var(--muted);
+      }
+      h2 {
+        font-size: clamp(38px, 5vw, 65px);
+        letter-spacing: -0.055em;
+        line-height: 0.98;
+        margin: 12px 0 15px;
+      }
+      .lead {
+        font-size: 18px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .feature {
+        padding: 28px;
+        min-height: 230px;
+        position: relative;
+        overflow: hidden;
+      }
+      .feature:after {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        right: -45px;
+        bottom: -50px;
+        background: var(--blob);
+        opacity: 0.12;
+      }
+      .icon {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .feature h3 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .stat {
+        padding: 25px;
+      }
+      .stat .num {
+        font-size: 36px;
+        font-weight: 850;
+        letter-spacing: -0.05em;
+      }
+      .stat p {
+        color: var(--muted);
+        margin: 7px 0 0;
+        font-size: 13px;
+      }
+      .token {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 22px;
+      }
+      .token-main {
+        padding: 36px;
+      }
+      .token-main h3 {
+        font-size: 30px;
+        margin: 0 0 8px;
+      }
+      .token-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid var(--line);
+        padding: 17px 0;
+        color: var(--muted);
+      }
+      .token-row strong {
+        color: var(--ink);
+        text-align: right;
+      }
+      .note {
+        margin-top: 20px;
+        padding: 15px 17px;
+        border-radius: 16px;
+        background: #fff8e1;
+        color: #6b5b00;
+        font-size: 13px;
+        line-height: 1.5;
+        border: 1px solid #f4df87;
+      }
+      .terminal {
+        background: #202124;
+        color: #fff;
+        padding: 28px;
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      .terminal .top {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 25px;
+      }
+      .terminal i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #777;
+      }
+      .terminal p {
+        line-height: 1.7;
+        color: #d8dbe0;
+        margin: 7px 0;
+      }
+      .ok {
+        color: #72df91;
+      }
+      .warn {
+        color: #ffd666;
+      }
+      .rewards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .reward {
+        padding: 30px;
+      }
+      .step {
+        display: flex;
+        gap: 17px;
+        margin: 22px 0;
+      }
+      .stepnum {
+        min-width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 850;
+        background: var(--ink);
+        color: #fff;
+      }
+      .step h3 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .stockbox {
+        padding: 32px;
+        background: linear-gradient(145deg, #f8f9fa, #fff);
+        position: relative;
+        overflow: hidden;
+      }
+      .stockbox:before {
+        content: "$GOOGLx";
+        position: absolute;
+        right: -20px;
+        top: 18px;
+        font-size: 72px;
+        font-weight: 900;
+        color: rgba(66, 133, 244, 0.07);
+        letter-spacing: -0.08em;
+      }
+      .stocktitle {
+        font-size: 38px;
+        font-weight: 850;
+        letter-spacing: -0.05em;
+        margin: 10px 0;
+      }
+      .mini-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--muted);
+        font-weight: 800;
+      }
+      .up {
+        color: var(--green);
+        font-weight: 850;
+      }
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .phase {
+        padding: 24px;
+        border-top: 5px solid var(--accent);
+      }
+      .phase h3 {
+        margin: 0 0 8px;
+      }
+      .phase p {
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+      .faq {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .faq details {
+        padding: 20px 22px;
+      }
+      .faq summary {
+        font-weight: 750;
+        cursor: pointer;
+      }
+      .faq p {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .cta {
+        padding: 55px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8f9fa, #fff);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta h2 {
+        max-width: 760px;
+        margin: 0 auto 18px;
+      }
+      .cta p {
+        color: var(--muted);
+        max-width: 650px;
+        margin: 0 auto 25px;
+        line-height: 1.6;
+      }
+      footer {
+        padding: 35px 0 50px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.65;
+      }
+      .footerline {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .disclaimer {
+        margin-top: 20px;
+        max-width: 980px;
+      }
+      @media (max-width: 800px) {
+        .navlinks {
+          display: none;
+        }
+        .grid3,
+        .stats,
+        .roadmap,
+        .faq,
+        .token,
+        .rewards {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          padding-top: 65px;
+        }
+        section {
+          padding: 60px 0;
+        }
+        .cta {
+          padding: 35px 22px;
+        }
+        .footerline {
+          flex-direction: column;
+        }
+        .token-row {
+          flex-direction: column;
+          gap: 6px;
+        }
+        .token-row strong {
+          text-align: left;
+        }
+      }
+
+      .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .copy-btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+      }
+
+      .copy-btn svg {
+        transition: transform 0.3s;
+      }
+
+      .copy-btn:hover svg {
+        transform: rotate(-10deg);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <img src="logo-web-small.png" />
+        <div><span></span></div>
+        <div class="">TOKEN: <b>$NOSI</b></div>
+        <div class="gradient-text">NO SUPER INTELLIGENCE</div>
+
+        <div class="navlinks">
+          <a href="#why">Why</a><a href="#token">Token</a
+          ><a href="#rewards">Rewards</a><a href="#roadmap">Roadmap</a
+          ><a href="#faq">FAQ</a>
+        </div>
+        <a class="btn btn-dark" href="#rewards">Show me the stock</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p id="contractAddress">0x1234567890abcdef1234567890abcdef12345678</p>
+
+          <button class="copy-btn" onclick="copiarContrato()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M8 8H18V18H8V8Z" stroke="white" stroke-width="2" />
+              <path
+                d="M6 16H5C3.9 16 3 15.1 3 14V5C3 3.9 3.9 3 5 3H14C15.1 3 16 3.9 16 5V6"
+                stroke="white"
+                stroke-width="2"
+              />
+            </svg>
+            <span>Copy Contract</span>
+          </button>
+          <br />
+
+          <script>
+            function copiarContrato() {
+              const contrato =
+                document.getElementById("contractAddress").innerText;
+              const btn = document.querySelector(".copy-btn span");
+
+              navigator.clipboard.writeText(contrato).then(() => {
+                btn.textContent = "✅ Copied";
+
+                setTimeout(() => {
+                  btn.textContent = "📋 Copy Contract";
+                }, 2000);
+              });
+            }
+          </script>
+          <br />
+          <div class="kicker">
+            <span class="dot"></span> 100% human-grade incompetence
+          </div>
+          <br />
+          <div class="kicker"><img align="center" src="logo-web.png" /></div>
+
+          <h1>
+            Meet the <span class="gradient-text">No Super Intelligence.</span>
+          </h1>
+          <p>
+            While everyone else is building superintelligence, we made a bold
+            decision: <strong>let's not.</strong>
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#token">Explore $NOSI ↓</a
+            ><a class="btn btn-light" href="#why">Why are you like this?</a>
+          </div>
+          <div class="ticker">
+            TOKEN: <b>$NOSI</b> · STATUS: <b>CONFIDENTLY MEDIOCRE</b> · IQ:
+            <b>CLASSIFIED</b>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee">
+        <div class="marquee-inner">
+          <span class="c1">NO AGI</span><span>•</span
+          ><span class="c2">NO ASI</span><span>•</span
+          ><span class="c3">NO PROMISES OF GENIUS</span><span>•</span
+          ><span class="c4">GOOGLx-PAIRED LIQUIDITY</span><span>•</span
+          ><span>JUST VIBES</span><span>•</span> <span class="c1">NO AGI</span
+          ><span>•</span><span class="c2">NO ASI</span><span>•</span
+          ><span class="c3">NO PROMISES OF GENIUS</span><span>•</span
+          ><span class="c4">GOOGLx-PAIRED LIQUIDITY</span><span>•</span
+          ><span>JUST VIBES</span><span>•</span>
+        </div>
+      </div>
+      <img src="nosi_1.jpg" />
+      <section id="why">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">The breakthrough nobody asked for</div>
+            <h2>Intelligence, but make it less.</h2>
+            <p class="lead">
+              A parody of the race toward superintelligence. $NOSI celebrates
+              the ancient human art of saying “I don't know” with absolute
+              confidence.
+            </p>
+          </div>
+          <div class="grid3">
+            <article class="card feature" style="--blob: var(--blue)">
+              <div class="icon">🧠</div>
+              <h3>Proof of Stupidity™</h3>
+              <p>
+                A revolutionary consensus mechanism based on not understanding
+                what's going on — but participating anyway.
+              </p>
+            </article>
+            <article class="card feature" style="--blob: var(--red)">
+              <div class="icon">🫠</div>
+              <h3>Zero Optimization</h3>
+              <p>
+                Our algorithm avoids improving itself whenever possible.
+                Efficiency is simply too mainstream.
+              </p>
+            </article>
+            <article class="card feature" style="--blob: var(--yellow)">
+              <div class="icon">🚀</div>
+              <h3>Serious Roadmap™</h3>
+              <p>
+                We have a roadmap because every crypto project needs one.
+                Whether we follow it is another question.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="stats">
+            <div class="card stat">
+              <div class="num">0%</div>
+              <p>Superintelligence</p>
+            </div>
+            <div class="card stat">
+              <div class="num">100%</div>
+              <p>Unjustified confidence</p>
+            </div>
+            <div class="card stat">
+              <div class="num">∞</div>
+              <p>Possible excuses</p>
+            </div>
+            <div class="card stat">
+              <div class="num">1</div>
+              <p>Unnecessarily complex token</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="token">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">The token</div>
+            <h2>$NOSI</h2>
+            <p class="lead">
+              A token built around one simple idea: make the crypto market a
+              little less serious — while giving liquidity providers a very
+              unusual relationship with tokenized Google exposure.
+            </p>
+          </div>
+          <div class="token">
+            <div class="card token-main">
+              <h3>Tokenomics™</h3>
+              <p style="color: var(--muted)">
+                Illustrative values — replace these with the actual contract
+                parameters before launch.
+              </p>
+              <div class="token-row">
+                <span>Token</span><strong>$NOSI</strong>
+              </div>
+              <div class="token-row">
+                <span>Liquidity pair</span><strong>$NOSI / $GOOGLx</strong>
+              </div>
+              <div class="token-row">
+                <span>Launch venue</span><strong>StonkFun</strong>
+              </div>
+              <div class="token-row">
+                <span>LP / trading venue</span
+                ><strong>StonkFun / Raydium</strong>
+              </div>
+              <div class="token-row">
+                <span>Utility</span><strong>Mostly emotional</strong>
+              </div>
+              <div class="note">
+                The $GOOGLx mechanism described below is a tokenized-stock /
+                DeFi structure, not the same thing as directly owning ordinary
+                shares of Alphabet, Inc. Rights, custody, redemption and legal
+                treatment depend on the actual $GOOGLx product and its
+                documentation.
+              </div>
+            </div>
+            <div class="terminal">
+              <div class="top"><i></i><i></i><i></i></div>
+              <p>$ ./ask-super-intelligence</p>
+              <p class="warn">ERROR: Too much intelligence detected.</p>
+              <p>$ ./switch_to_nosi</p>
+              <p class="ok">✓ Intelligence reduced successfully.</p>
+              <p class="ok">✓ GOOGLx pairing detected.</p>
+              <p class="ok">✓ Human confusion restored.</p>
+              <p style="color: #9aa0a6">> Please do not expect miracles.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rewards">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">How the Google rewards work</div>
+            <h2>Your liquidity has a job.</h2>
+            <p class="lead">
+              The core idea is simple: instead of pairing $NOSI with wrapped
+              SOL, the token launches against tokenized Google exposure via
+              <strong>$GOOGLx</strong> on StonkFun. Liquidity providers can then
+              receive trading-fee distributions in fractions of that tokenized
+              stock exposure.
+            </p>
+          </div>
+          <div class="rewards">
+            <div class="card reward">
+              <div class="step">
+                <div class="stepnum">1</div>
+                <div>
+                  <h3>The $GOOGLx Liquidity Pool Pairing</h3>
+                  <p>
+                    Instead of matching $NOSI against wrapped SOL, $NOSI
+                    launches natively against tokenized Google Shares
+                    (<strong>$GOOGLx</strong>) on StonkFun. If the underlying
+                    Google-linked exposure rises, the value of the tokenized
+                    asset in the pool can rise as well — subject to the
+                    mechanics and risks of the actual $GOOGLx product and pool.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="stepnum">2</div>
+                <div>
+                  <h3>Trading Fees → Stock Tokens</h3>
+                  <p>
+                    By providing liquidity to the StonkFun/Raydium pool, trading
+                    fees generated by other people buying and selling can be
+                    distributed back to eligible liquidity providers in
+                    fractions of <strong>$GOOGLx</strong>, according to the
+                    actual protocol rules.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card stockbox">
+              <div class="mini-label">The idea in one screen</div>
+              <div class="stocktitle">$NOSI + $GOOGLx</div>
+              <p class="lead">
+                Crypto meme token liquidity meets tokenized equity exposure.
+              </p>
+              <div
+                style="
+                  margin-top: 28px;
+                  padding: 18px;
+                  border-radius: 18px;
+                  background: #fff;
+                  border: 1px solid var(--line);
+                "
+              >
+                <div class="mini-label">Illustrative flow</div>
+                <p style="font-weight: 800; font-size: 18px">
+                  Buy / Sell $NOSI
+                </p>
+                <div style="font-size: 28px; margin: 8px 0">↓</div>
+                <p style="font-weight: 800; font-size: 18px">
+                  Pool generates trading fees
+                </p>
+                <div style="font-size: 28px; margin: 8px 0">↓</div>
+                <p style="font-weight: 800; font-size: 18px">
+                  $GOOGLx distributed to eligible LPs
+                </p>
+              </div>
+              <p
+                style="
+                  font-size: 12px;
+                  color: var(--muted);
+                  line-height: 1.55;
+                  margin-top: 18px;
+                "
+              >
+                This is a conceptual explanation, not a guarantee of yield or
+                stock appreciation. The actual distribution mechanism,
+                eligibility, fees, custody and token rights must be verified
+                against the live StonkFun/Raydium and $GOOGLx documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Highly serious roadmap</div>
+            <h2>Our path to nowhere.</h2>
+          </div>
+          <div class="roadmap">
+            <div class="card phase" style="--accent: var(--blue)">
+              <h3>01 · Think</h3>
+              <p>
+                Have an idea. Immediately question whether it was a good one.
+              </p>
+            </div>
+            <div class="card phase" style="--accent: var(--red)">
+              <h3>02 · Launch</h3>
+              <p>
+                Deploy, meme, build community and maintain an impressive level
+                of confidence.
+              </p>
+            </div>
+            <div class="card phase" style="--accent: var(--yellow)">
+              <h3>03 · Don't Scale</h3>
+              <p>
+                Reject unnecessary intelligence. Keep the vibes. Improve nothing
+                on purpose.
+              </p>
+            </div>
+            <div class="card phase" style="--accent: var(--green)">
+              <h3>04 · Relax</h3>
+              <p>Watch the chart. Pretend to understand it. Continue anyway.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">FAQ</div>
+            <h2>Questions we probably shouldn't answer.</h2>
+          </div>
+          <div class="faq">
+            <details class="card">
+              <summary>What is $NOSI?</summary>
+              <p>
+                A satirical token built around the idea of a “No Super
+                Intelligence” movement — with a liquidity design involving
+                $GOOGLx.
+              </p>
+            </details>
+            <details class="card">
+              <summary>Do holders receive Google shares?</summary>
+              <p>
+                Not necessarily. The described mechanism involves $GOOGLx, a
+                tokenized Google-share exposure. Whether and how that represents
+                rights to underlying shares depends on the actual $GOOGLx
+                structure and documentation.
+              </p>
+            </details>
+            <details class="card">
+              <summary>How do the rewards work?</summary>
+              <p>
+                Eligible liquidity providers can receive trading-fee
+                distributions in fractions of $GOOGLx according to the rules of
+                the relevant StonkFun/Raydium pool and reward mechanism.
+              </p>
+            </details>
+            <details class="card">
+              <summary>Does Google sponsor $NOSI?</summary>
+              <p>
+                No such claim should be made unless there is an actual formal
+                relationship. $NOSI is not presented as affiliated with or
+                endorsed by Google or Alphabet.
+              </p>
+            </details>
+            <details class="card">
+              <summary>Can $GOOGLx go down?</summary>
+              <p>
+                Yes. Tokenized equity exposure and liquidity positions can lose
+                value. There may also be smart-contract, counterparty, custody,
+                liquidity, regulatory and market risks.
+              </p>
+            </details>
+            <details class="card">
+              <summary>Is this financial advice?</summary>
+              <p>
+                No. This is a project website and satire. Review the actual
+                token, protocol and legal documentation before interacting with
+                any asset.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card cta">
+            <h2>Join the intelligence avoidance movement.</h2>
+            <p>
+              No promises of world domination. No artificial genius. Just $NOSI,
+              questionable decisions and a very unusual liquidity pair.
+            </p>
+            <a class="btn btn-dark" href="#rewards"
+              >Understand the $GOOGLx loop →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footerline">
+          <strong>NO SUPER INTELLIGENCE © 2026</strong
+          ><span>Not affiliated with Google LLC or Alphabet Inc.</span>
+        </div>
+        <div class="disclaimer">
+          DISCLAIMER: $NOSI is presented as a satirical crypto project. Crypto
+          assets, liquidity positions and tokenized-equity products can involve
+          substantial risk, including loss of value, smart-contract risk,
+          liquidity risk, counterparty/custody risk and regulatory risk. The
+          $GOOGLx description above is a conceptual explanation of the proposed
+          mechanism and is not a guarantee of yield, stock appreciation or
+          direct ownership of Alphabet shares. Any statement about rewards,
+          custody, redemption, underlying assets or eligibility must match the
+          live protocol and legal documentation. Google, Alphabet and related
+          trademarks belong to their respective owners. No endorsement,
+          sponsorship or affiliation is implied.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
